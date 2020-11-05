@@ -44,11 +44,11 @@ function parse_entries(fname: string): void {
 
         lineNo++;
 
-        if (lineNo > 200) {
-            break;
-        }
+        // if (lineNo > 200) {
+        //     break;
+        // }
 
-        console.log(sprintf("%d  %s", state, line.toString()));
+        // console.log(sprintf("%d  %s", state, line.toString()));
 
 
         let m = pDefinition.exec(line.toString());
