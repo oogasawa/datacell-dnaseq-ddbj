@@ -7,25 +7,25 @@ import * as sprintf_js from "sprintf-js";
 const sprintf = sprintf_js.sprintf;
 
 
-function main(): void {
+// function main(): void {
 
-    const parser = new ArgumentParser({
-        description: "DDBJ Flat File Parser"
-    });
+//     const parser = new ArgumentParser({
+//         description: "DDBJ Flat File Parser"
+//     });
 
-    parser.add_argument('file');
+//     parser.add_argument('file');
 
-    const args = parser.parse_args();
-    // console.dir(args);
-    parse_entries(args.file);
-}
+//     const args = parser.parse_args();
+//     // console.dir(args);
+//     parse_entries(args.file);
+// }
 
 
 /**  
  * 
  * @param fname
  */
-function parse_entries(fname: string): void {
+export function parse_entries(fname: string): void {
     const liner = new lineByLine(fname);
 
     let line: false | Buffer;
@@ -127,5 +127,5 @@ function print_organism(data: object): void {
 }
 
 
-main();
+// main();
 

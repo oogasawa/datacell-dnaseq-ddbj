@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "dist/lib/index.js",
 	"types": "src/lib/index.ts",
+	"bin": "dist/scripts/ddbj_parser.js",
 	"scripts": {
 		"build": "npx gulp",
 		"typedoc": "npx typedoc  --out docs src",
@@ -20,17 +21,17 @@
 	},
 	"homepage": "https://github.com/oogasawa/datacell-dnaseq-ddbj#readme",
 	"dependencies": {
-		"@types/argparse": "^2.0.2",
 		"@types/n-readlines": "^1.0.1",
-		"@types/node": "^14.14.3",
+		"@types/node": "^14.14.6",
 		"@types/object-path": "^0.11.0",
 		"@types/sprintf-js": "^1.1.2",
-		"argparse": "^2.0.1",
+		"@types/yargs": "^15.0.9",
 		"log4js": "^6.3.0",
 		"n-readlines": "^1.0.0",
 		"object-path": "^0.11.5",
 		"sprintf-js": "^1.1.2",
-		"ts-object-path": "^0.1.2"
+		"ts-object-path": "^0.1.2",
+		"yargs": "^16.1.0"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.2.14",
