@@ -1,87 +1,57 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parse_entries = void 0;
-var n_readlines_1 = __importDefault(require("n-readlines"));
-var objectPath = __importStar(require("object-path"));
-var sprintf_js = __importStar(require("sprintf-js"));
-var sprintf = sprintf_js.sprintf;
-// function main(): void {
-//     const parser = new ArgumentParser({
-//         description: "DDBJ Flat File Parser"
-//     });
-//     parser.add_argument('file');
-//     const args = parser.parse_args();
-//     // console.dir(args);
-//     parse_entries(args.file);
-// }
+const n_readlines_1 = __importDefault(require("n-readlines"));
+const object_path_1 = __importDefault(require("object-path"));
 /**
  *
  * @param fname
  */
 function parse_entries(fname) {
-    var liner = new n_readlines_1.default(fname);
-    var line;
-    var pDefinition = /^DEFINITION\s+(\S.+)/;
-    var pOtherLine = /^\s+(\S.+)/;
-    var pAccession = /^ACCESSION\s+(\S+)/;
-    var pOrganism = /^\s+ORGANISM\s+(.+)/;
-    var pOtherHeader = /^(\S+)/;
-    var pEnd = /^\/\//;
-    var data = {};
-    var state = 0;
-    var lineNo = 0;
+    const liner = new n_readlines_1.default(fname);
+    let line;
+    const pDefinition = /^DEFINITION\s+(\S.+)/;
+    const pOtherLine = /^\s+(\S.+)/;
+    const pAccession = /^ACCESSION\s+(\S+)/;
+    const pOrganism = /^\s+ORGANISM\s+(.+)/;
+    const pOtherHeader = /^(\S+)/;
+    const pEnd = /^\/\//;
+    let data = {};
+    let state = 0;
+    let lineNo = 0;
     while (line = liner.next()) {
         lineNo++;
         // if (lineNo > 200) {
         //     break;
         // }
         // console.log(sprintf("%d  %s", state, line.toString()));
-        var m = pDefinition.exec(line.toString());
+        let m = pDefinition.exec(line.toString());
         if (m != null) { // matched!!
-            objectPath.set(data, "definition", m[1]);
+            object_path_1.default.set(data, "definition", m[1]);
             state = 1;
             continue;
         }
         m = pOtherLine.exec(line.toString());
         if (state === 1 && m != null) {
-            var definition = objectPath.get(data, "definition");
+            let definition = object_path_1.default.get(data, "definition");
             definition = definition.concat(" ", m[1]);
-            objectPath.set(data, "definition", definition);
+            object_path_1.default.set(data, "definition", definition);
             state = 2;
             continue;
         }
         m = pAccession.exec(line.toString());
         if (m != null) { // matched!!
-            objectPath.set(data, "accession", m[1]);
+            object_path_1.default.set(data, "accession", m[1]);
             print_definition(data);
             state = 0;
             continue;
         }
         m = pOrganism.exec(line.toString());
         if (m != null) { // matched!!
-            objectPath.set(data, "organism", m[1]);
+            object_path_1.default.set(data, "organism", m[1]);
             print_organism(data);
             state = 0;
             continue;
@@ -95,17 +65,17 @@ function parse_entries(fname) {
 }
 exports.parse_entries = parse_entries;
 function print_definition(data) {
-    var category = "entry";
-    var id = objectPath.get(data, "accession");
-    var predicate = "definition";
-    var value = objectPath.get(data, "definition");
+    let category = "entry";
+    let id = object_path_1.default.get(data, "accession");
+    let predicate = "definition";
+    let value = object_path_1.default.get(data, "definition");
     console.log([category, id, predicate, value].join("\t"));
 }
 function print_organism(data) {
-    var category = "entry";
-    var id = objectPath.get(data, "accession");
-    var predicate = "organism";
-    var value = objectPath.get(data, "organism");
+    let category = "entry";
+    let id = object_path_1.default.get(data, "accession");
+    let predicate = "organism";
+    let value = object_path_1.default.get(data, "organism");
     console.log([category, id, predicate, value].join("\t"));
 }
 // main();

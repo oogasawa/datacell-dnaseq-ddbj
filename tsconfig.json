@@ -9,18 +9,18 @@
 		"test/**/*"
 	],
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es6",
+		"module": "commonJS",
 		"esModuleInterop": true,
 		"downlevelIteration": true,
 		"removeComments": false,
-		"resolveJsonModule": true,
 		"preserveConstEnums": true,
 		"sourceMap": true,
 		"lib":[
 			"es2020.string"
 		],
 		"types": [
-			"mocha",
+			"jest",
 			"node"
 		]
 	},

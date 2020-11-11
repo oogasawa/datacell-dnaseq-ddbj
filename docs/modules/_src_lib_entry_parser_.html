@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;src/scripts/feature_parser&quot; | datacell-dnaseq-ddbj</title>
+	<title>&quot;src/lib/entry_parser&quot; | datacell-dnaseq-ddbj</title>
 	<meta name="description" content="Documentation for datacell-dnaseq-ddbj">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_src_scripts_feature_parser_.html">&quot;src/scripts/feature_parser&quot;</a>
+					<a href="_src_lib_entry_parser_.html">&quot;src/lib/entry_parser&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;src/scripts/feature_parser&quot;</h1>
+			<h1>Module &quot;src/lib/entry_parser&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,16 +73,15 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_src_scripts_feature_parser_.html#sprintf" class="tsd-kind-icon">sprintf</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_entry_parser_.html#sprintf" class="tsd-kind-icon">sprintf</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_scripts_feature_parser_.html#clear_feature_qualifier" class="tsd-kind-icon">clear_<wbr>feature_<wbr>qualifier</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_scripts_feature_parser_.html#main" class="tsd-kind-icon">main</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_scripts_feature_parser_.html#parse_features" class="tsd-kind-icon">parse_<wbr>features</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_scripts_feature_parser_.html#print_feature_qualifier" class="tsd-kind-icon">print_<wbr>feature_<wbr>qualifier</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_entry_parser_.html#parse_entries" class="tsd-kind-icon">parse_<wbr>entries</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_entry_parser_.html#print_definition" class="tsd-kind-icon">print_<wbr>definition</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_entry_parser_.html#print_organism" class="tsd-kind-icon">print_<wbr>organism</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,64 +95,24 @@
 					<div class="tsd-signature tsd-kind-icon">sprintf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">sprintf</span><span class="tsd-signature-symbol"> = sprintf_js.sprintf</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/scripts/feature_parser.ts:7</li>
+							<li>Defined in <a href="https://github.com/oogasawa/datacell-dnaseq-ddbj/blob/e1f73b6/src/lib/entry_parser.ts#L7">src/lib/entry_parser.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="clear_feature_qualifier" class="tsd-anchor"></a>
-					<h3>clear_<wbr>feature_<wbr>qualifier</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">clear_<wbr>feature_<wbr>qualifier<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parse_entries" class="tsd-anchor"></a>
+					<h3>parse_<wbr>entries</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse_<wbr>entries<span class="tsd-signature-symbol">(</span>fname<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/scripts/feature_parser.ts:189</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <span class="tsd-signature-type">object</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="main" class="tsd-anchor"></a>
-					<h3>main</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">main<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/scripts/feature_parser.ts:10</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="parse_features" class="tsd-anchor"></a>
-					<h3>parse_<wbr>features</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">parse_<wbr>features<span class="tsd-signature-symbol">(</span>fname<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/scripts/feature_parser.ts:28</li>
+									<li>Defined in <a href="https://github.com/oogasawa/datacell-dnaseq-ddbj/blob/e1f73b6/src/lib/entry_parser.ts#L28">src/lib/entry_parser.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -171,16 +130,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="print_feature_qualifier" class="tsd-anchor"></a>
-					<h3>print_<wbr>feature_<wbr>qualifier</h3>
+					<a name="print_definition" class="tsd-anchor"></a>
+					<h3>print_<wbr>definition</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">print_<wbr>feature_<wbr>qualifier<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">print_<wbr>definition<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/scripts/feature_parser.ts:172</li>
+									<li>Defined in <a href="https://github.com/oogasawa/datacell-dnaseq-ddbj/blob/e1f73b6/src/lib/entry_parser.ts#L105">src/lib/entry_parser.ts:105</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">object</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="print_organism" class="tsd-anchor"></a>
+					<h3>print_<wbr>organism</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">print_<wbr>organism<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/oogasawa/datacell-dnaseq-ddbj/blob/e1f73b6/src/lib/entry_parser.ts#L118">src/lib/entry_parser.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -201,42 +183,30 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_src_scripts_accession_to_db_xref_.html">&quot;src/scripts/accession_<wbr>to_<wbr>db_<wbr>xref&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_src_scripts_accession_to_organism_.html">&quot;src/scripts/accession_<wbr>to_<wbr>organism&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_src_scripts_accession_to_species_.html">&quot;src/scripts/accession_<wbr>to_<wbr>species&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_src_scripts_entry_parser_.html">&quot;src/scripts/entry_<wbr>parser&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
-						<a href="_src_scripts_feature_parser_.html">&quot;src/scripts/feature_<wbr>parser&quot;</a>
+						<a href="_src_lib_entry_parser_.html">&quot;src/lib/entry_<wbr>parser&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_scripts_flatfile_parser_.html">&quot;src/scripts/flatfile_<wbr>parser&quot;</a>
+						<a href="_src_lib_feature_parser_.html">&quot;src/lib/feature_<wbr>parser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_scripts_ddbj_parser_.html">&quot;src/scripts/ddbj_<wbr>parser&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_src_scripts_feature_parser_.html#sprintf" class="tsd-kind-icon">sprintf</a>
+						<a href="_src_lib_entry_parser_.html#sprintf" class="tsd-kind-icon">sprintf</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_lib_entry_parser_.html#parse_entries" class="tsd-kind-icon">parse_<wbr>entries</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_src_scripts_feature_parser_.html#clear_feature_qualifier" class="tsd-kind-icon">clear_<wbr>feature_<wbr>qualifier</a>
+						<a href="_src_lib_entry_parser_.html#print_definition" class="tsd-kind-icon">print_<wbr>definition</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_src_scripts_feature_parser_.html#main" class="tsd-kind-icon">main</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_src_scripts_feature_parser_.html#parse_features" class="tsd-kind-icon">parse_<wbr>features</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_src_scripts_feature_parser_.html#print_feature_qualifier" class="tsd-kind-icon">print_<wbr>feature_<wbr>qualifier</a>
+						<a href="_src_lib_entry_parser_.html#print_organism" class="tsd-kind-icon">print_<wbr>organism</a>
 					</li>
 				</ul>
 			</nav>

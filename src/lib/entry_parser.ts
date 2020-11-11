@@ -1,24 +1,6 @@
 
-import { ArgumentParser } from "argparse";
-import { version } from "../../package.json";
 import lineByLine from "n-readlines";
-import * as objectPath from "object-path";
-import * as sprintf_js from "sprintf-js";
-const sprintf = sprintf_js.sprintf;
-
-
-// function main(): void {
-
-//     const parser = new ArgumentParser({
-//         description: "DDBJ Flat File Parser"
-//     });
-
-//     parser.add_argument('file');
-
-//     const args = parser.parse_args();
-//     // console.dir(args);
-//     parse_entries(args.file);
-// }
+import objectPath from "object-path";
 
 
 /**  

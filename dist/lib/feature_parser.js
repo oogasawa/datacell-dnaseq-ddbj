@@ -23,34 +23,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parse_features = void 0;
-var n_readlines_1 = __importDefault(require("n-readlines"));
-var objectPath = __importStar(require("object-path"));
-var sprintf_js = __importStar(require("sprintf-js"));
-var sprintf = sprintf_js.sprintf;
+const n_readlines_1 = __importDefault(require("n-readlines"));
+const object_path_1 = __importDefault(require("object-path"));
+const sprintf_js = __importStar(require("sprintf-js"));
+const sprintf = sprintf_js.sprintf;
 /**
  *
  * @param fname
  */
 function parse_features(fname) {
-    var liner = new n_readlines_1.default(fname);
-    var line;
-    var p1 = /^ACCESSION\s+(\S+)/;
-    var p2 = /^FEATURES\s+(\S+)/;
-    var p3 = /^(\S+)/;
-    var p4 = /^\/\//;
-    var f0 = /^\s{5}([A-Za-z]\S+)\s+(\S+)/;
-    var f1 = /^\s+(\/\S+)=(.+)/;
-    var f2 = /^\s+(.+)/;
-    var data = {};
-    var state = 0;
-    var lineNo = 0;
+    const liner = new n_readlines_1.default(fname);
+    let line;
+    const p1 = /^ACCESSION\s+(\S+)/;
+    const p2 = /^FEATURES\s+(\S+)/;
+    const p3 = /^(\S+)/;
+    const p4 = /^\/\//;
+    const f0 = /^\s{5}([A-Za-z]\S+)\s+(\S+)/;
+    const f1 = /^\s+(\/\S+)=(.+)/;
+    const f2 = /^\s+(.+)/;
+    let data = {};
+    let state = 0;
+    let lineNo = 0;
     while (line = liner.next()) {
         lineNo++;
         // if (lineNo > 500) {
         //     break;
         // }
         // console.log(sprintf("%d  %s", state, line.toString()));
-        var m = p1.exec(line.toString()); // an ACCESSION line
+        let m = p1.exec(line.toString()); // an ACCESSION line
         if (state <= 1 && m != null) { // matched
             data["accession"] = m[1];
             state = 1;
@@ -72,7 +72,7 @@ function parse_features(fname) {
         m = p3.exec(line.toString()); // an other header line
         if (state >= 2 && m != null) { // prev state === feature table or feature qualifier
             // if it exists, print feature qualifier data.
-            if (objectPath.has(data, "feature.qualifier")) {
+            if (object_path_1.default.has(data, "feature.qualifier")) {
                 print_feature_qualifier(data);
                 clear_feature_qualifier(data);
             }
@@ -81,7 +81,7 @@ function parse_features(fname) {
         }
         if (state < 2 && m != null) {
             // console.error(sprintf("Unexpected Error (3, state %d): line %d\t%s", state, lineNo, line));
-            if (objectPath.has(data, "feature.qualifier")) {
+            if (object_path_1.default.has(data, "feature.qualifier")) {
                 print_feature_qualifier(data);
                 clear_feature_qualifier(data);
             }
@@ -90,7 +90,7 @@ function parse_features(fname) {
         }
         m = p4.exec(line.toString()); // end of an entry
         if (m != null) {
-            if (objectPath.has(data, "feature.qualifier")) {
+            if (object_path_1.default.has(data, "feature.qualifier")) {
                 print_feature_qualifier(data);
                 clear_feature_qualifier(data);
             }
@@ -99,12 +99,12 @@ function parse_features(fname) {
         }
         m = f0.exec(line.toString()); // a feature line (CDS, source, etc.)
         if (state >= 2 && m != null) { // matched in a feature table
-            if (objectPath.has(data, "feature.qualifier")) {
+            if (object_path_1.default.has(data, "feature.qualifier")) {
                 print_feature_qualifier(data);
                 clear_feature_qualifier(data);
             }
-            objectPath.set(data, "feature.name", m[1]);
-            objectPath.set(data, "feature.range", m[2]);
+            object_path_1.default.set(data, "feature.name", m[1]);
+            object_path_1.default.set(data, "feature.range", m[2]);
             state = 3; // a feature
             continue;
         }
@@ -114,12 +114,12 @@ function parse_features(fname) {
         }
         m = f1.exec(line.toString()); // a feature qualifier line.
         if (state >= 3 && m != null) { // matched in a feature
-            if (objectPath.has(data, "feature.qualifier")) {
+            if (object_path_1.default.has(data, "feature.qualifier")) {
                 print_feature_qualifier(data);
                 clear_feature_qualifier(data);
             }
-            objectPath.set(data, "feature.qualifier", m[1]);
-            objectPath.set(data, "feature.value", m[2]);
+            object_path_1.default.set(data, "feature.qualifier", m[1]);
+            object_path_1.default.set(data, "feature.value", m[2]);
             state = 4; // feature value
             continue;
         }
@@ -129,28 +129,28 @@ function parse_features(fname) {
         }
         m = f2.exec(line.toString()); // feature value
         if (state === 4 && m != null) { // feature value continues.
-            var val = objectPath.get(data, "feature.value");
+            let val = object_path_1.default.get(data, "feature.value");
             val = val.concat("\\n", m[1]);
-            objectPath.set(data, "feature.value", val);
+            object_path_1.default.set(data, "feature.value", val);
             continue;
         }
     }
 }
 exports.parse_features = parse_features;
 function print_feature_qualifier(data) {
-    var category = "feature";
-    var id = {
-        accession: objectPath.get(data, "accession"),
-        feature: objectPath.get(data, "feature.name"),
-        range: objectPath.get(data, "feature.range")
+    let category = "feature";
+    let id = {
+        accession: object_path_1.default.get(data, "accession"),
+        feature: object_path_1.default.get(data, "feature.name"),
+        range: object_path_1.default.get(data, "feature.range")
     };
-    var predicate = objectPath.get(data, "feature.qualifier");
-    var value = objectPath.get(data, "feature.value");
+    let predicate = object_path_1.default.get(data, "feature.qualifier");
+    let value = object_path_1.default.get(data, "feature.value");
     predicate = predicate.replace('/', 'Q_');
     console.log([category, JSON.stringify(id), predicate, value].join("\t"));
 }
 function clear_feature_qualifier(data) {
-    objectPath.del(data, "feature.qualifier");
-    objectPath.del(data, "feature.value");
+    object_path_1.default.del(data, "feature.qualifier");
+    object_path_1.default.del(data, "feature.value");
 }
 // main();

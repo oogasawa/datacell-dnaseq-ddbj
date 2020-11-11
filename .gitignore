@@ -7,5 +7,7 @@
 package-lock.json
 yarn.lock
 node_modules/
-data/
+*-linux
+*-macos
+*-win.exe
 

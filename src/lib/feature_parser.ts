@@ -1,7 +1,7 @@
 
 import * as yargs from "yargs";
 import lineByLine from "n-readlines";
-import * as objectPath from "object-path";
+import objectPath from "object-path";
 import * as sprintf_js from "sprintf-js";
 const sprintf = sprintf_js.sprintf;
 
